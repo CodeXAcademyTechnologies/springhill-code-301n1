@@ -2,6 +2,8 @@
 
 ## Overview
 
+See the demo here: https://github.com/rmccrear/people-of-301
+
 In this class we will be covering some new topics and reviewing concepts you should already be familiar with.
 
 We will spend some time reviewing the concepts from the prework. We will also discuss several new topics: `create-react-app` and component-based architecture.
@@ -10,21 +12,17 @@ We will spend some time reviewing the concepts from the prework. We will also di
 
 - Overview of 301
 - Review of prework
-- Discussion of `create-react-app`
+- Discussion of `npm create vite@latest`
 - Discussion of component-based architecture
 - Introduction to code challenges
 - Introduction of code challenge topic
 - Lab prep
 
-## Learning Objectives
-
-### Students will be able to
-
 #### Describe and Define
 
 - Component-based architecture
 - React
-- `create-react-app`
+- `npm create vite@latest`
 - JavaScript classes
 - Arrow functions
 - Gain an understanding of scope with arrow functions
