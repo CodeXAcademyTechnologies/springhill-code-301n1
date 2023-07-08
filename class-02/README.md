@@ -1,5 +1,14 @@
 # State and Props
 
+Replits for today: 
+
+* Code Challenges forEach and map: https://replit.com/@rmccrear/SoupySpicyMegabyte#challenge-01.test.js
+* React Header and Footer: https://replit.com/@rmccrear/Class-02-React-Components-Demo#src/components/Main.jsx
+
+Repo for today:
+
+* People of 301 repo: https://github.com/rmccrear/people-of-301
+
 ## Overview
 
 This class will focus on passing information as `props` from a parent component into a child component. We will also cover the concept of `state` and how individual components can hold state.
