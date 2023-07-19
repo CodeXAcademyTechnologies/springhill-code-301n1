@@ -1,14 +1,14 @@
 import React from 'react';
-import Header from './header.js';
-import Footer from './footer.js';
-import Main from './main.js';
+import Header from './Header';
+import Footer from './Footer';
+import Explorer from './Explorer';
 
 class App extends React.Component {
   render(){
     return (
       <div className="App">
         <Header />
-        <Main />
+        <Explorer />
         <Footer />
       </div>
     );
