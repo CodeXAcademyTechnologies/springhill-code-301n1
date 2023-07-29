@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import Photos from './Photos';
 
@@ -36,6 +37,7 @@ class App extends React.Component {
             <Form.Label>Find Photos About...</Form.Label>
             <Form.Control onChange={this.updateSearchQuery} type="text" placeholder="Enter a search term" />
           </Form.Group>
+          <Button type="submit">Search</Button>
         </Form>
 
         {this.state.photos.length > 0 &&
