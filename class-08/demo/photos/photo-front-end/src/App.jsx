@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import Photos from './Photos';
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
