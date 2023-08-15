@@ -11,12 +11,22 @@ let one = {width: 50, height: 50, backgroundColor: "white"};
 
 let bitmap0 = 
 [
+  [ 0, 0, 1, 0, 0 ],
+  [ 0, 1, 0, 1, 0 ],
+  [ 0, 1, 0, 1, 0 ],
+  [ 0, 1, 0, 1, 0 ],
+  [ 0, 0, 1, 0, 0 ],
   [ 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 0, 0 ],
+];
+
+let bitmap8 = 
+[
+  [ 0, 1, 1, 1, 0 ],
+  [ 0, 1, 0, 1, 0 ],
+  [ 0, 1, 1, 1, 0 ],
+  [ 0, 1, 0, 1, 0 ],
+  [ 0, 1, 0, 1, 0 ],
+  [ 0, 1, 1, 1, 0 ],
 ];
 
 class Box extends React.Component {
@@ -38,7 +48,7 @@ class Box extends React.Component {
 class App extends React.Component {
 
   render() {
-    let bitmap = bitmap0;
+    let bitmap = bitmap8;
     let components2D = [];
     for(let row of bitmap) {
       let componentRow = [];
