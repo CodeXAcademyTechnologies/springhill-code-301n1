@@ -45,6 +45,18 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let sum = 0;
+  // First loop through the outer array
+  for(let i=0; i<matrix.length; i++) {
+    //In the example, i will run from 0 to 2 (length: 3)
+    for(let j=0; j<matrix[i].length; i++) {
+      // In the example, j will run from 0 to 3 (length: 4)
+      // Then, j will run from 0 to 2  (length: 3)
+      // Then, j will run from 0 to 2  (length: 3)
+      sum+= matrix[i][j];
+    }
+  }
+  return sum;
 };
 
 
