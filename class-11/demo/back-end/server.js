@@ -18,6 +18,7 @@ app.use(cors());
 // Mongoose can take care of the DB connection for us.
 // Just use this line once in your code, and mongoose
 // will be connected.
+mongoose.set('strictQuery', true); // strict schemas
 mongoose.connect(process.env.DATABASE_URL);
 
 app.get('/cats', async (request, response, next) => {
