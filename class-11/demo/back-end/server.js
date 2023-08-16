@@ -32,6 +32,9 @@ app.get('/cats', async (request, response) => {
   response.send(cats);
 });
 
+// handle errors
+// app.use();
+
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
 
 
