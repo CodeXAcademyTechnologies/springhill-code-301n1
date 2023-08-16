@@ -20,12 +20,14 @@ app.use(cors());
 // will be connected.
 mongoose.connect(process.env.DATABASE_URL);
 
-app.get('/cats', async (request, response) => {
+app.get('/cats', async (request, response, next) => {
 
   const filterQuery = {};
 
   if (request.query.location) {
     filterQuery.location = request.query.location;
+  } else {
+    return next(new Error('No location specified.'));
   }
 
   const cats = await Cat.find(filterQuery);
@@ -44,8 +46,17 @@ app.get('/dogs', async (request, response) => {
 });
 
 // handle errors
-// app.use();
+// it's safe to just copy and paste this into your code.
+// make sure it is after all your routes (get, post, ...)
+// make sure it is before your app.listen call
+function errorHandler(err, req, res, next) {
+  console.log(err.message);
+  res.status(500).send({ error: err.message })
+}
+app.use(errorHandler);
 
+
+// start server
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
 
 
