@@ -5,21 +5,6 @@
 This is the beginning of our new project, a mobile-only book collection. You will be gradually working towards a full-scale application, complete with an express server, persistence in a MongoDB database, authentication, and the ability to view, add, update and delete books from your React front end.
 
 To start, we will introduce Mongodb and Mongoose. We will create data models and hard code some data to store in our database so that our front end can retrieve that data. We will introduce `CRUD` and focus on the `R`:`READ`.
-
-## Class Outline
-
-- Warm-up exercise
-- Review code challenges
-- Introduction of the code challenge topic
-- Code review of lab assignment
-- MongoDB, Mongoose, Data Modeling
-- Code Demo
-- Lab Preview
-
-## Learning Objectives
-
-### Students will be able to
-
 #### Describe and Define
 
 - CRUD

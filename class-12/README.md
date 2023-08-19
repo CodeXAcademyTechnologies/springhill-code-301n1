@@ -4,20 +4,6 @@
 
 In this class, we will focus on the `C` and the `D` of the `CRUD`:`CREATE` and `DELETE`. We will discuss how to send a POST request and save that information in a MongoDB database and a DELETE request to remove information from the database.
 
-## Class Outline
-
-- Warm-up exercise
-- Review code challenges
-- Introduction of the code challenge topic
-- Code review of lab assignment
-- Creating a resource
-- Code Demo
-- Lab Preview
-
-## Learning Objectives
-
-### Students will be able to
-
 #### Describe and Define
 
 - POST
@@ -136,6 +122,7 @@ axios.post(`${SERVER}`, { data: newRecord });
   }
   ```
 
+- In the future, we might have users. Each user will have an array of books. In this case, we will find the user then remove one element from the book array on the user.
 - if we need to find a user first and then delete a book ...
 
   ```javaScript
@@ -159,3 +146,11 @@ axios.post(`${SERVER}`, { data: newRecord });
     })
   }
   ```
+
+## Diagrams
+
+![FullStack](./diagrams/full-stack-diagram.png)
+
+![Urls](./diagrams/values-of-urls.png)
+
+![Labs](./diagrams/labs-overview.png)
