@@ -24,14 +24,16 @@ mongoose.connect(process.env.DATABASE_URL);
 app.get('/cats', async (request, response, next) => {
 
   const filterQuery = {};
-
+  let cats = [];
   if (request.query.location) {
     filterQuery.location = request.query.location;
-  } else {
-    return next(new Error('No location specified.'));
-  }
+  } 
 
-  const cats = await Cat.find(filterQuery);
+  try {
+    cats = await Cat.find(filterQuery);
+  } catch(error) {
+    return next(error);
+  }
 
   response.send(cats);
 });
