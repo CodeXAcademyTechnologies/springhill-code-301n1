@@ -13,6 +13,8 @@ const PORT = process.env.PORT;
 const app = express();
 
 app.use(cors());
+// convert request.body from json
+app.use(express.json());
 
 // Our server maintains a connection to the database
 // Mongoose can take care of the DB connection for us.
@@ -38,6 +40,8 @@ app.get('/cats', async (request, response, next) => {
   response.send(cats);
 });
 
+// READ
+//GET http://localhost:3001/dogs
 app.get('/dogs', async (request, response) => {
   if (request.query.breed) { // a non empty string is truthy.
     const dogs = await Dog.find({breed: request.query.breed})
@@ -46,6 +50,24 @@ app.get('/dogs', async (request, response) => {
     const dogs = await Dog.find({}); // use {} to find all dogs.
     response.send(dogs);
   }
+});
+
+// CREATE
+// POST http://localhost:3001/dogs
+app.post('/dogs', async (request, response) => {
+  const dogObj = request.body;
+  const dog = await Dog.create(dogObj);
+  response.send(dog);
+})
+
+// DELETE
+// DELETE http://localhost:3001/dogs/64e0f5927dad659eab9b0770
+app.delete('/dogs/:id', async (request, response) => {
+  // remember request.query.lat ?
+  const dogId = request.params.id;
+  // dogId = "64e0f5927dad659eab9b0770"
+  await Dog.findByIdAndDelete(dogId); 
+  response.send({"status": "OK"});
 });
 
 // handle errors

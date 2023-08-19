@@ -29,6 +29,23 @@ class App extends React.Component {
     this.fetchDogs();
   }
 
+  createDog = async (dogObj) => {
+    let apiUrl = `${SERVER}/dogs`;
+    // create on server
+    let newDog = await axios.post(apiUrl, dogObj);
+    // TODO: add to local state
+    this.fetchDogs();
+  }
+
+  deleteDog = async (dog_id) => {
+    let apiUrl = `${SERVER}/dogs/${dog_id}`;
+    await axios.delete(apiUrl);
+
+    // TODO: add to local state
+    this.fetchDogs();
+
+  }
+
   async fetchDogs() {
     // set the url for our server
     // http://localhost:3001/dogs
@@ -68,7 +85,8 @@ class App extends React.Component {
         <BrowserRouter>
           <nav>
             <h1>World of Cats</h1>
-            <Link to="/">Home</Link>
+            <Link to="/">Cats</Link>
+            <Link to="/dogs">Dogs</Link>
             <Link to="/about">About</Link>
           </nav>
           <Routes>
@@ -83,7 +101,7 @@ class App extends React.Component {
               </div>
             }/>
             <Route path="/dogs" element={
-              <Dogs dogs={this.state.dogs} />
+              <Dogs dogs={this.state.dogs} deleteDog={this.deleteDog} />
             }/>
             <Route path="/about" element={
               <h1>A page about dogs and cats</h1>
