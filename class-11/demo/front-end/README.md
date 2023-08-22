@@ -13,3 +13,17 @@ When you click new dog, the new dog form will appear.
 When you click update dog, the update dog form will appear.
 
 ![Update Dog](./docs/2.png)
+
+## Component Data Flow
+
+### List all dogs
+![](./docs/component-dogs-list.png)
+
+### Create new dog
+![](./docs/component-create-dog.png)
+
+### open form
+![](./docs/component-openForm.png)
+
+### update a dog from our list
+![](./docs/component-update-dog.png)
