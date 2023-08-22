@@ -32,9 +32,25 @@ class App extends React.Component {
   createDog = async (dogObj) => {
     let apiUrl = `${SERVER}/dogs`;
     // create on server
-    let newDog = await axios.post(apiUrl, dogObj);
+    let result = await axios.post(apiUrl, dogObj);
+    let newDog = result.data;
+    // this.fetchDogs();
+
     // TODO: add to local state
-    this.fetchDogs();
+    // We want to do this...
+    // this.state.dogs.push(newDog);
+    // put we can't because react needs us to use
+    // this.setState({dogs: })
+    // The reason for this is that React discourages us from
+    // mutating state. We can only replace an array with new 
+    // array.
+
+    // copy the list, add newDog to the end. (...es6 spread operator)
+    const oldDogList = this.state.dogs;
+    const updatedDogList = [...oldDogList, newDog]; 
+    this.setState({
+      dogs: updatedDogList
+    });
   }
 
   deleteDog = async (dog_id) => {
@@ -101,7 +117,12 @@ class App extends React.Component {
               </div>
             }/>
             <Route path="/dogs" element={
-              <Dogs dogs={this.state.dogs} deleteDog={this.deleteDog} />
+              <Dogs 
+                dogs={this.state.dogs} 
+                deleteDog={this.deleteDog} 
+                createDog={this.createDog}
+
+              />
             }/>
             <Route path="/about" element={
               <h1>A page about dogs and cats</h1>
