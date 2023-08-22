@@ -1,8 +1,15 @@
-# React + Vite
+# Dogs!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a small CRUD app to keep track of all of the dogs in your life!
 
-Currently, two official plugins are available:
+## Mockup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://www.canva.com/design/DAFsPyyc7t0/O462AGtshVJ-HQvoZnieug/view?utm_content=DAFsPyyc7t0&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
+
+When you click new dog, the new dog form will appear.
+
+![Create Dog](./docs/1.png)
+
+When you click update dog, the update dog form will appear.
+
+![Update Dog](./docs/2.png)
