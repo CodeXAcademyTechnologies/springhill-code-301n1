@@ -54,10 +54,46 @@ app.get('/dogs', async (request, response) => {
 
 // CREATE
 // POST http://localhost:3001/dogs
+// POST has a body that comes with it.
+// We can access the body with request.body.
+// Note: if it is on JSON, we need json middleware.
 app.post('/dogs', async (request, response) => {
   const dogObj = request.body;
+  console.log(request.body);
   const dog = await Dog.create(dogObj);
   response.send(dog);
+})
+
+// UPDATE
+// PUT http://localhost:3001/dogs/64e55d992ec5d8fd8c06c921
+app.put('/dogs/:id', async (request, response) => {
+  // request.query ?key=xyz&lon=100&lat=14
+  // 1. Access the dog id from the url path
+  const dog_id = request.params.id;
+  console.log(dog_id);
+  // 2. get the body of the request.
+  const dogObj = request.body;
+  // 3. the options for the mongo update
+  const options = {
+    new: true,
+    // overwrite: true
+  };
+  console.log(dogObj);
+  let updatedDog;
+  // handle an error
+  try {
+    updatedDog = await Dog.findByIdAndUpdate( 
+      dog_id, 
+      dogObj, 
+      options
+    );
+  } catch(error) {
+    // just log and send 500 code
+    console.log(error);
+    return response.status(500).send({error: "could not update dog"})
+  }
+
+  response.send(updatedDog);
 })
 
 // DELETE

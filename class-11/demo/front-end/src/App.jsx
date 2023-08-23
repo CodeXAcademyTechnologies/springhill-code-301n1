@@ -30,13 +30,18 @@ class App extends React.Component {
   }
 
   createDog = async (dogObj) => {
+    // POST http://localhost:3001/dogs
     let apiUrl = `${SERVER}/dogs`;
     // create on server
+    // apiUrl is where the POST is sent.
+    // dogObj is the BODY of the POST
     let result = await axios.post(apiUrl, dogObj);
     let newDog = result.data;
+    // We could just re-download all dogs after creating a new dog.
+    // This is OK, but makes an extra trip to the server.
     // this.fetchDogs();
 
-    // TODO: add to local state
+    // We could also just put the new dog in manually, as below.
     // We want to do this...
     // this.state.dogs.push(newDog);
     // put we can't because react needs us to use
@@ -104,6 +109,8 @@ class App extends React.Component {
             <Link to="/">Cats</Link>
             <Link to="/dogs">Dogs</Link>
             <Link to="/about">About</Link>
+            <Link to="/README">README</Link>
+
           </nav>
           <Routes>
             <Route exact path="/" element={
@@ -126,6 +133,9 @@ class App extends React.Component {
             }/>
             <Route path="/about" element={
               <h1>A page about dogs and cats</h1>
+            }/>
+            <Route path="/README" element={
+              <h1>README Goes here.</h1>
             }/>
           </Routes>
         </BrowserRouter>
