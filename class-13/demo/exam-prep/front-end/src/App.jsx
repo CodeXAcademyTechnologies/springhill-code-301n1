@@ -31,8 +31,10 @@ class App extends React.Component {
 
   async createSnack(snackInfo) {
     try {
+      // CREATE a snack
       const response = await axios.post(`${SERVER}/snacks`, snackInfo);
       console.log('create a snack: ', response.data);
+      // append new snack to the list of snacks
       this.setState({ snacks: [...this.state.snacks, response.data]});
     } catch(error) {
       console.error(error);

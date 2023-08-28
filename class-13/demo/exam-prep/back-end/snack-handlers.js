@@ -3,9 +3,11 @@ const SnackModel = require('./snack-model')
 
 SnackHandlers.create = async (request, response) => {
   const { name, description } = request.body;
-  const snack = new SnackModel({ name, description });
 
-  await snack.save();
+  const snack = await SnackModel.create({ name, description });
+  // const snack = new SnackModel({ name, description });
+
+  // await snack.save();
   
   response.status(200).json(snack);
 }
