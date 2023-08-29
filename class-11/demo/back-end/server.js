@@ -106,6 +106,11 @@ app.delete('/dogs/:id', async (request, response) => {
   response.send({"status": "OK"});
 });
 
+// handle 404 errors
+app.use('*', (req,res) => {
+  res.status(404).send({"status": "Not Found"});
+});
+
 // handle errors
 // it's safe to just copy and paste this into your code.
 // make sure it is after all your routes (get, post, ...)
