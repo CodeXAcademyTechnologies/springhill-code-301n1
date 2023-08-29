@@ -29,6 +29,8 @@ class App extends React.Component {
     this.fetchDogs();
   }
 
+  // CREATE dog needs the dogObj (name, breed, age, ...)
+  // It does not need an ID.
   createDog = async (dogObj) => {
     // POST http://localhost:3001/dogs
     let apiUrl = `${SERVER}/dogs`;
@@ -52,19 +54,28 @@ class App extends React.Component {
 
     // copy the list, add newDog to the end. (...es6 spread operator)
     const oldDogList = this.state.dogs;
-    const updatedDogList = [...oldDogList, newDog]; 
+    const updatedDogList = [...oldDogList, newDog];
     this.setState({
       dogs: updatedDogList
     });
   }
 
+  // DELETE dog needs the dog_id
   deleteDog = async (dog_id) => {
     let apiUrl = `${SERVER}/dogs/${dog_id}`;
     await axios.delete(apiUrl);
 
     // TODO: add to local state
     this.fetchDogs();
+  }
 
+  // UPDATE dog needs the id
+  // and dogObj (age, name, breed,...)
+  updateDog = async (dog_id, dogObj) => {
+    let apiUrl = `${SERVER}/dogs/${dog_id}`;
+    let updatedDog = await axios.put(apiUrl, dogObj);
+
+    this.fetchDogs();
   }
 
   async fetchDogs() {
@@ -74,7 +85,7 @@ class App extends React.Component {
     let dogs;
     let result = await axios.get(apiUrl);
     dogs = result.data;
-    this.setState({dogs: dogs});
+    this.setState({ dogs: dogs });
   }
 
   async fetchCats(location = null) {
@@ -122,21 +133,21 @@ class App extends React.Component {
                   <button>ok</button>
                 </form> */}
               </div>
-            }/>
+            } />
             <Route path="/dogs" element={
-              <Dogs 
-                dogs={this.state.dogs} 
-                deleteDog={this.deleteDog} 
+              <Dogs
+                dogs={this.state.dogs}
+                deleteDog={this.deleteDog}
                 createDog={this.createDog}
-
+                updateDog={this.updateDog}
               />
-            }/>
+            } />
             <Route path="/about" element={
               <h1>A page about dogs and cats</h1>
-            }/>
+            } />
             <Route path="/README" element={
               <h1>README Goes here.</h1>
-            }/>
+            } />
           </Routes>
         </BrowserRouter>
       </>
